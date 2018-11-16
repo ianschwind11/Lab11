@@ -33,7 +33,13 @@ public class Oval extends Shape
     {
         super(color, filled);
 
-        // TODO: complete implementation.
+        location = new Point[4];
+        int deltaX = diameter1 / 2;
+        int deltaY = diameter2 / 2;
+        location[0] = new Point(pointCenter.x - deltaX, pointCenter.y + deltaY);
+        location[1] = new Point(pointCenter.x + deltaX, pointCenter.y + deltaY);
+        location[2] = new Point(pointCenter.x - deltaX, pointCenter.y - deltaY);
+        location[3] = new Point(pointCenter.x + deltaX, pointCenter.y - deltaY);
     }
 
     /**
