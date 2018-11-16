@@ -36,7 +36,7 @@ public class Oval extends Shape
         location = new Point[4];
         int deltaX = diameter1 / 2;
         int deltaY = diameter2 / 2;
-        location[0] = new Point(pointCenter.x - deltaX, pointCenter.y + deltaY);
+        location[0] = new Point(pointCenter.x - deltaX, pointCenter.y + deltaY); //Top left corner
         location[1] = new Point(pointCenter.x + deltaX, pointCenter.y + deltaY);
         location[2] = new Point(pointCenter.x - deltaX, pointCenter.y - deltaY);
         location[3] = new Point(pointCenter.x + deltaX, pointCenter.y - deltaY);
@@ -74,11 +74,18 @@ public class Oval extends Shape
      * 
      * @param graphics A Graphics object for drawing the shape
      */
-    @Override
+    //@Override
     public void draw(Graphics graphics)
     {
         graphics.setColor(this.getColor());
         
-        // TODO: define how to draw an oval. Remember that the point stored is the center point.
+        if(isFilled())
+        {
+            graphics.fillOval((int)getLocation()[0].getX(), (int)getLocation()[0].getY(), diameter1, diameter2);
+        }
+        else
+        {
+            graphics.drawOval((int)getLocation()[0].getX(), (int)getLocation()[0].getY(), diameter1, diameter2);
+        }
     }
 }
