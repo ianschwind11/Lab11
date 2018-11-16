@@ -33,26 +33,60 @@ public class DrawFrame extends JFrame
         int width = 800;
         int height = 600;
         
-        // TODO: draw a dog:
+        // draw a dog:
         
         // Base head:
         Circle base = new Circle(new Point(400, 300), 400, Color.ORANGE, true);
         
         // Ears:
+        RightTriangle leftOutEar = new RightTriangle(new Point(180, 430), 30, 100, Color.GRAY, true);
+        RightTriangle leftInEar = new RightTriangle(new Point(170, 430), 20, 80, Color.PINK, true);
+        RightTriangle rightOutEar = new RightTriangle(new Point(520, 430), 30, 100, Color.GRAY, true);
+        RightTriangle rightInEar = new RightTriangle(new Point(510, 430), 20, 80, Color.PINK, true);
         
         // Eyes:
+        Oval leftEye = new Oval(new Point(240, 380), 80, 160, Color.BLACK, true);
+        Oval leftPupil = new Oval(new Point(240, 380), 50, 120, Color.WHITE, true);
+        Oval rightEye = new Oval(new Point(560, 380), 80, 160, Color.BLACK, true);
+        Oval rightPupil = new Oval(new Point(560, 380), 50, 120, Color.WHITE, true);
         
-        // Nose and Whiskers:
+        // Nose and mouth and tounge:
+        Circle nose = new Circle(new Point(400, 300), 50, Color.BLACK, true);
+        PolyLine leftMouth = new PolyLine(new Point(240, 250), new Point(400, 200), 75, Color.BLACK, true);
+        PolyLine rightMouth = new PolyLine(new Point(400, 200), new Point(560, 250), 75, Color.BLACK, true);
+        Oval tounge = new Oval(new Point(425, 200), 80, 120, Color.RED, true);
         
         // Collar:
+        Oval collar = new Oval(new Point(400, 100), 400, 50, Color.BLUE, true);
+        Circle collarButton = new Circle(new Point(400, 100), 60, Color.RED, true);
+        Circle  collarHighlight = new Circle(new Point(400, 100), 50, Color.GREEN, false);
         
-        // Square around the dog:
+        // Square and circle around the dog:
+        Square outsideSquare = new Square(new Point(400, 300), 450, Color.MAGENTA, false);
+        Circle outsideCircle = new Circle(new Point(400, 300), 500, Color.BLACK, false);
 
         // initialize the panel and add the shapes to it
         drawPanel = new DrawPanel();
         
         // TODO: add shapes to the panel:
         drawPanel.addShape(base);
+        drawPanel.addShape(outsideCircle);
+        drawPanel.addShape(outsideSquare);
+        drawPanel.addShape(leftOutEar);
+        drawPanel.addShape(leftInEar);
+        drawPanel.addShape(rightOutEar);
+        drawPanel.addShape(rightInEar);
+        drawPanel.addShape(leftEye);
+        drawPanel.addShape(rightEye);
+        drawPanel.addShape(leftPupil);
+        drawPanel.addShape(rightPupil);
+        drawPanel.addShape(nose);
+        drawPanel.addShape(leftMouth);
+        drawPanel.addShape(rightMouth);
+        drawPanel.addShape(tounge);
+        drawPanel.addShape(collar);
+        drawPanel.addShape(collarButton);
+        drawPanel.addShape(collarHighlight);
         
         // set background color
         drawPanel.setBackground(Color.YELLOW);
